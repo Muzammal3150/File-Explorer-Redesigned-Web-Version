@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="left-nav">
+            <div class="app-logo-name">
+                <img src="fileExplorerLogo.svg" alt="" class="app-logo">
+                <div class="app-name">File Explorer</div>
+            </div>
+            <div class="navigation-links"></div>
+        </div>
+        <main>
+            <nav class="top-nav">
+                <div class="tabs-wrapper">
+                    <div class="add-tab-btn" onclick="AddTab()"><i class="fa-solid fa-plus"></i></div>
+                </div>
+
+                <div class="app-btns">
+                    <button class="minimize-btn" title="Minimize">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <button class="restoreDown-btn" title="Restore Down">
+                        <i class="fa-regular fa-square"></i>
+                    </button>
+                    <button class="close-btn" title="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </nav>
+            <div class="file-grid-header">
+                <div class="nav-secondary">
+                    <button title='Back' class="back-btn" onclick="PerformAction('Go Back')"><i
+                            class="fa-solid fa-arrow-left"></i></button>
+                    <button title='Next' class="next-btn" onclick="PerformAction('Go Next')"><i
+                            class="fa-solid fa-arrow-right"></i></button>
+                    <button title='Parent' class="parent-btn" onclick="PerformAction('Go To Parent Directory')"><i
+                            class="fa-solid fa-arrow-up"></i></button>
+                    <ul class="breadcrumb"></ul>
+                    <div class="file-search">
+                        <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <input type="text" placeholder="Search">
+                    </div>
+                </div>
+                <ul class="action-nav">
+                    <li><i class="fa-solid fa-scissors"></i>
+                        <p>Cut</p>
+                    </li>
+                    <li><i class="fa-regular fa-copy"></i>
+                        <p>Copy</p>
+                    </li>
+                    <li><i class="fa-regular fa-paste"></i>
+                        <p>Paste</p>
+                    </li>
+                    <li><i class="fa-regular fa-trash-can"></i>
+                        <p>Delete</p>
+                    </li>
+                    <li onclick="PerformAction('Rename')" id="rename-btn"><i class="fa-solid fa-file-pen"></i>
+                        <p>Rename</p>
+                    </li>
+                    <li><i class="fa-solid fa-plus"></i>
+                        <p>New</p>
+                    </li>
+                    <li><i class="fa-solid fa-sort"></i>
+                        <p>Sort</p>
+                    </li>
+                    <li><i class="fa-solid fa-share-nodes"></i>
+                        <p>Share</p>
+                    </li>
+                    <li class="mode-switch-container">
+                        <div class="mode-switch">
+                            <i class="fa-solid fa-grip"></i>
+                        </div>
+                        <div class="mode-switch  mode-selected"><i class="fa-solid fa-list"></i></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="file-grid"></div>
+            <div class="info-div">
+                <div class="folder-name">Pictures</div>
+                <div class="total-items">18 Items</div>
+
+            </div>
+        </main>
+    </div>
+    <div class="message-wrapper">
+        <div class="message">
+            <div class="close-btn"></div>
+            <div class="message-content"></div>
+
+        </div>
+    </div>
+    <div class="window">
+        <div id="window-topnav" onmousedown="DragEnter(this,event)">
+            <div class="app-logo-name">
+                <img src="https://img.icons8.com/?size=100&id=U2IFMSCuhbpE&format=png&color=000000g" alt=""
+                    class="app-logo">
+                <div class="app-name">Image Viewer</div>
+            </div>
+            <div class="app-btns">
+                <button class="minimize-btn" title="Minimize">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+                <button class="restoreDown-btn" title="Restore Down">
+                    <i class="fa-regular fa-square"></i>
+                </button>
+                <button class="close-btn" title="Close" onclick="CloseWindow()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+        <div class="window-body">
+            <img src="https://img.icons8.com/?size=100&id=U2IFMSCuhbpE&format=png&color=000000g" alt="">
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/d2e4154021.js" crossorigin="anonymous"></script>
+    <script src="gsap\minified\gsap.min.js"></script>
+    <script src="gsap\minified\ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
